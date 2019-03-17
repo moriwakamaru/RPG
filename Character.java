@@ -1,13 +1,18 @@
 
 public class Character {
 
-	static int _characterNumber=3;
-	int characterID;
-	int hp;
-	int mp;
-	int ap;
-	String name;
-	String type;
+	static int characterNumber=3;
+	protected int characterID;
+	protected int hp;
+	protected int mp;
+	protected int ap;
+	protected String name;
+	protected String type;
+	
+	Character()
+	{
+		
+	}
 	
 	Character(int characterID, int hp,int mp,int ap,String name,String type)
 	{
@@ -25,11 +30,9 @@ public class Character {
 		System.out.println("体力 : "+hp);
 		System.out.println("魔力 : "+mp);
 		System.out.println("属性 : "+type);
-		if(this.characterID==1) lucy();
-		if(this.characterID==2) rightning();
-		if(this.characterID==3) havoc();
 	}
-	public boolean judgeDeath()
+	
+	public boolean isDead()
 	{
 		if(hp<=0)
 		{
@@ -53,28 +56,14 @@ public class Character {
 	{
 		System.out.println(name+"のまほう！！");
 		enemy.damage(mp);
-		return enemy.judgeDeath();
+		return enemy.isDead();
 	}
 	
 	public boolean attack(Character enemy)
 	{
 		System.out.println(name+"のこうげき！！");
 		enemy.damage(ap);
-		return enemy.judgeDeath();
-	}
-	
-	void lucy()
-	{
-		System.out.println("私は"+name+"魔法を使うのが得意！！\nサポートや回復は任せて！");
-	}
-	
-	void rightning()
-	{
-		System.out.println("私は"+name+"体力には自信がある！！\n前線で活躍するわ！！");
-	}
-	void havoc()
-	{
-		System.out.println("私は"+name+"自慢はバランスの良さ！！\n遠隔攻撃が得意技！");
+		return enemy.isDead();
 	}
 	
 }
