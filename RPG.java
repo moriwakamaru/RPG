@@ -6,8 +6,8 @@ public class RPG {
 		System.out.println("ゲームを始めます。主人公を選択してください。");
 		Character[] mainCharacters=new Character[Character.characterNumber];
 		mainCharacters[0] =new Lucy(1,1000,700,300,"Lucy","魔女");
-		mainCharacters[1] =new Character(2,1500,500,600,"Rightning","剣士");
-		mainCharacters[2]=new Character(3,1300,600,450,"Havoc","スナイパー");
+		mainCharacters[1] =new Rightning(2,1500,500,600,"Rightning","剣士");
+		mainCharacters[2]=new Havoc(3,1300,600,450,"Havoc","スナイパー");
 		Character enemy=new Character(4,500,300,100,"まっくろくろすけ","enemy");
 		Scanner sc=new Scanner(System.in);
 		int characterSelect=0;
