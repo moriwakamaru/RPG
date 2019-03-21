@@ -15,25 +15,49 @@ public class Rightning extends Character {
 	public void selfProduce()
 	{
 		super.selfProduce();
-		System.out.println("私は"+name+"体力には自信がある！！\n前線で活躍するわ！！");
+		System.out.println("私は"+name+"体力には自信がある！！\n前線で活躍するわ！！\n");
 		
 	}
 	
-	public boolean attack(Character enemy)
+	public void attack(Character enemy)
 	{
 		Random rnd=new Random();
 		int chance=rnd.nextInt(5); 
 		if(chance==0) 
 		{
-			System.out.println(name+"の必殺技ライトソード！！");
-			enemy.damage(ap+100);
+			finisher(enemy);
 		}
 		else
 		{
-			System.out.println(name+"のこうげき！！");
-			enemy.damage(ap);
+			cuter(enemy);
 		}
-		return enemy.isDead();
+		
+	}
+	
+	public void finisher(Character enemy)
+	{
+		System.out.println(name+"の必殺技ライトソード！！");
+		enemy.damage(ap+100);
+		enemy.isDead();
+	}
+	
+	public void cuter(Character enemy)
+	{
+		System.out.println(name+"の切り裂きこうげき！！");
+		enemy.damage(ap);
+		enemy.isDead();
+	}
+	
+	public void thunder(Character enemy)
+	{
+		System.out.println(name+"のサンダー！！");
+		enemy.damage(mp);
+		enemy.isDead();
+	}
+	
+	public void magic(Character enemy)
+	{
+		 thunder(enemy);
 	}
 
 }

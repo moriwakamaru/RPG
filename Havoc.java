@@ -15,24 +15,48 @@ public class Havoc extends Character {
 	public void selfProduce()
 	{
 		super.selfProduce();	
-		System.out.println("私は"+name+"自慢はバランスの良さ！！\n遠隔攻撃が得意技！");
+		System.out.println("私は"+name+"自慢はバランスの良さ！！\n遠隔攻撃が得意技！\n");
 		
 	}
 	
-	public boolean attack(Character enemy)
+	public void attack(Character enemy)
 	{
 		Random rnd=new Random();
 		int chance=rnd.nextInt(5); 
 		if(chance==0) 
 		{
-			System.out.println(name+"のダブルガンズ！！");
-			enemy.damage(ap+100);
+			finisher(enemy);
 		}
 		else
 		{
-			System.out.println(name+"のこうげき！！");
-			enemy.damage(ap);
+			shotGun(enemy);
 		}
-		return enemy.isDead();
+		
+	}
+	
+	public void shotGun(Character enemy)
+	{
+		System.out.println(name+"のショットガン！！");
+		enemy.damage(ap);
+		enemy.isDead();
+	}
+	
+	public void finisher(Character enemy)
+	{
+		System.out.println(name+"のダブルガンズ！！");
+		enemy.damage(ap+100);
+		enemy.isDead();
+	}
+	
+	public void magic(Character enemy)
+	{
+		 fire(enemy);
+	}
+	
+	public void fire(Character enemy)
+	{
+		System.out.println(name+"のファイアー！！");
+		enemy.damage(mp);
+		enemy.isDead();
 	}
 }

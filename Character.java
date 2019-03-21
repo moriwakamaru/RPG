@@ -2,6 +2,7 @@
 public class Character {
 
 	static int characterNumber=3;
+	static int enemyNumber=2;
 	protected int characterID;
 	protected int hp;
 	protected int mp;
@@ -27,7 +28,8 @@ public class Character {
 	public void selfProduce()
 	{
 		System.out.println("名前 : "+name);
-		System.out.println("体力 : "+hp);
+		if(hp<=0)System.out.println("体力 : "+0);
+		else System.out.println("体力 : "+hp);
 		System.out.println("魔力 : "+mp);
 		System.out.println("属性 : "+type);
 	}
@@ -36,12 +38,12 @@ public class Character {
 	{
 		if(hp<=0)
 		{
-			System.out.println(name+"は、たおれた");
+			System.out.println(name+"は、たおれている\n");
 			return true;
 		}
 		else 
 		{
-			System.out.println(name+"の残りHPは"+hp+"!!");
+			System.out.println(name+"の残りHPは"+hp+"!!\n");
 			return false;
 		}
 	}
@@ -52,18 +54,20 @@ public class Character {
 		System.out.println(name+"は"+ap+"ポイントのダメージを受けた！！");
 	}
 	
-	public boolean magic(Character enemy)
+	public void magic(Character enemy)
 	{
 		System.out.println(name+"のまほう！！");
 		enemy.damage(mp);
-		return enemy.isDead();
+		enemy.isDead();
+		
 	}
 	
-	public boolean attack(Character enemy)
+	public void attack(Character enemy)
 	{
 		System.out.println(name+"のこうげき！！");
 		enemy.damage(ap);
-		return enemy.isDead();
+		enemy.isDead();
+		
 	}
 	
 }
