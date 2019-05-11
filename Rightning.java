@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Rightning extends Character {
+public class Rightning extends Character implements Movable {
 
 	Rightning(int characterID, int hp,int mp,int ap,String name,String type)
 	{
@@ -58,6 +58,12 @@ public class Rightning extends Character {
 	public void magic(Character enemy)
 	{
 		 thunder(enemy);
+	}
+	
+	@Override
+	public void move(Character enemy)
+	{
+		 attack(enemy);
 	}
 
 }

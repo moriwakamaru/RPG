@@ -1,5 +1,5 @@
 
-public class Enemy extends Character {
+public class Enemy extends Character implements Movable {
 
 	Enemy(int characterID, int hp,int mp,int ap,String name,String type)
 	{
@@ -56,6 +56,11 @@ public class Enemy extends Character {
 
 	}
 
+	@Override
+	public void move(Character enemy)
+	{
+		 attack(enemy);
+	}
 }
 
 

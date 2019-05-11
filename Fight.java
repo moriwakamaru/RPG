@@ -2,46 +2,46 @@ import java.util.Random;
 
 public class Fight {
 	
-	public void selectEnemyAttack(Character[] enemy,Character[] mainCharacters,Random rnd,int i)
+	public void selectEnemyAttack(Movable[] enemy,Movable[] mainCharacters,Random rnd,int i)
 	{
 		while(true) 
 		{
 			int target=rnd.nextInt(Character.enemyNumber);
-			if(enemy[target].hp<=0)continue;
-			mainCharacters[i].attack(enemy[target]);
+			if(((Character)enemy[target]).hp<=0)continue;
+			( mainCharacters[i]).move((Character) enemy[target]);
 			break;
 		}
 	}
 
-	public void selectEnemyMagic(Character[] enemy,Character[] mainCharacters,Random rnd,int i)
+	public void selectEnemyMagic(Movable[] enemy,Movable[] mainCharacters,Random rnd,int i)
 	{
 		while(true) 
 		{
 			int target=rnd.nextInt(Character.enemyNumber);
-			if(enemy[target].hp<=0)continue;
-			mainCharacters[i].magic(enemy[target]);
+			if(((Character)enemy[target]).hp<=0)continue;
+			((Character) mainCharacters[i]).magic((Character) enemy[target]);
 			break;
 		}
 	}
 	
-	public void selectCharacterAttack(Character[] enemy,Character[] mainCharacters,Random rnd,int i)
+	public void selectCharacterAttack(Movable[] enemy,Movable[] mainCharacters,Random rnd,int i)
 	{
 		while(true) 
 		{
 			int target=rnd.nextInt(Character.characterNumber);
-			if(mainCharacters[target].hp<=0)continue;
-			enemy[i].attack(mainCharacters[target]);
+			if(((Character)mainCharacters[target]).hp<=0)continue;
+			( enemy[i]).move((Character) mainCharacters[target]);
 			break;
 		}
 	}
 
-	public void selectCharacterMagic(Character[] enemy,Character[] mainCharacters,Random rnd,int i)
+	public void selectCharacterMagic(Movable[] enemy,Movable[] mainCharacters,Random rnd,int i)
 	{
 		while(true) 
 		{
 			int target=rnd.nextInt(Character.characterNumber);
-			if(mainCharacters[target].hp<=0)continue;
-			enemy[i].magic(mainCharacters[target]);
+			if(((Character)mainCharacters[target]).hp<=0)continue;
+			((Character) enemy[i]).magic((Character) mainCharacters[target]);
 			break;
 		}
 	}

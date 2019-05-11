@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Havoc extends Character {
+public class Havoc extends Character implements Movable{
 
 	Havoc(int characterID, int hp,int mp,int ap,String name,String type)
 	{
@@ -58,5 +58,11 @@ public class Havoc extends Character {
 		System.out.println(name+"のファイアー！！");
 		enemy.damage(mp);
 		enemy.isDead();
+	}
+	
+	@Override
+	public void move(Character enemy)
+	{
+		 attack(enemy);
 	}
 }
