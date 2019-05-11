@@ -1,21 +1,7 @@
 
-abstract public class Character {
+public class Enemy extends Character {
 
-	static int characterNumber=3;
-	static int enemyNumber=2;
-	protected int characterID;
-	protected int hp;
-	protected int mp;
-	protected int ap;
-	protected String name;
-	protected String type;
-
-	Character()
-	{
-
-	}
-
-	Character(int characterID, int hp,int mp,int ap,String name,String type)
+	Enemy(int characterID, int hp,int mp,int ap,String name,String type)
 	{
 		this.characterID=characterID;
 		this.hp=hp;
@@ -61,14 +47,16 @@ abstract public class Character {
 		enemy.isDead();
 
 	}
+	@Override
+	public void attack(Character enemy)
+	{
+		System.out.println(name+"のこうげき！！");
+		enemy.damage(ap);
+		enemy.isDead();
 
-	abstract public void attack(Character enemy);
-	//{
-	//	System.out.println(name+"のこうげき！！");
-	//	enemy.damage(ap);
-	//	enemy.isDead();
-	//
-	//}
+	}
 
 }
+
+
 
